@@ -28,9 +28,6 @@ Reach out to me with suitable opportunities!
 <br/>  
 
 
-## Rapidfire  
-<table><tr><td valign="top" width="50%">
-
 - I’m currently working on Cooking up - meals app  
   
 
@@ -40,11 +37,8 @@ Reach out to me with suitable opportunities!
 - Fun fact: I keep night shift swithed on at all times!  
 
 
-</td><td valign="top" width="50%">
 
-
-
-</td></tr></table>  
+ 
 
 <br/>  
 
