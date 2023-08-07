@@ -21,8 +21,7 @@
 
 
 ### Glad to see you here!  
-An undergrad student pursuing Electronics and Communications Engineering from Guru Govind Singh Indraprastha University. I'm currently exploring the field of cross-platform application development using Flutter and Dart. 
-Reach out to me with suitable opportunities!  
+An undergrad student pursuing Electronics and Communications Engineering at USICT. I have been learning Flutter and Firebase to follow my passion for app development and currently exploring data structures and algorithms and web development to expand my knowledge.  
   
 
 <br/>  
