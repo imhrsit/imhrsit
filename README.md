@@ -21,7 +21,7 @@
 
 
 ### Glad to see you here!  
-An undergrad student pursuing Electronics and Communications Engineering at USICT. I have been learning Flutter and Firebase to follow my passion for app development and currently exploring data structures and algorithms and web development to expand my knowledge.  
+An undergrad student at USICT. I have been learning Flutter and Firebase to follow my passion for app development and currently exploring data structures and algorithms and web development to expand my knowledge.  
   
 
 <br/>  
