@@ -27,7 +27,7 @@ An undergrad student at USICT. I have been learning Flutter and Firebase to foll
 <br/>  
 
 
-- I’m currently working on Cooking up - meals app  
+- I’m currently working on a chat app - Flutter  
   
 
 - I'm currently learning Firebase authentication  
