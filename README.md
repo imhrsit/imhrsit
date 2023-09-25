@@ -30,9 +30,6 @@ An undergrad student at USICT. I have been learning Flutter and Firebase to foll
 - I’m currently working on a chat app - Flutter  
   
 
-- I'm currently learning Firebase authentication  
-  
-
 - Fun fact: I keep night shift swithed on at all times!  
 
 
