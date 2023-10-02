@@ -1,5 +1,6 @@
-## Hey 👋, I'm Harsh, A Flutter app developer!  
-  
+                                        ##Hey 👋, I'm Harsh, A Flutter app developer!  
+
+  <p align="center"><img src="https://user-images.githubusercontent.com/30944790/121785091-681aee00-cbd5-11eb-817c-5132578ff0a8.png"></p>
 
 <a href="https://github.com/imhrsit" target="_blank">
 <img src=https://img.shields.io/badge/github-%2324292e.svg?&style=for-the-badge&logo=github&logoColor=white alt=github style="margin-bottom: 5px;" />
@@ -21,13 +22,9 @@
 
 
 ### Glad to see you here!  
-An undergrad student at USICT. I have been learning Flutter and Firebase to follow my passion for app development and currently exploring data structures and algorithms and web development to expand my knowledge.  
-  
-
+An undergrad student at USICT. I have been learning Flutter and Firebase to follow my passion for app development and currently exploring data structures and algorithms and web3 to expand my knowledge.  
 <br/>  
-
-
-- I’m currently working on a chat app - Flutter  
+- I’m currently learning Data Structures and Algorithms!  
   
 
 - Fun fact: I keep night shift swithed on at all times!  
@@ -66,7 +63,7 @@ An undergrad student at USICT. I have been learning Flutter and Firebase to foll
 
 <br/>  
 
-  
+  [![An image of @imhrsit's Holopin badges, which is a link to view their full Holopin profile](https://holopin.me/imhrsit)](https://holopin.io/@imhrsit)
 
 <br/>  
 
