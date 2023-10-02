@@ -1,4 +1,5 @@
-                                        ##Hey 👋, I'm Harsh, A Flutter app developer!  
+<h1 align="center">Hey👋, I'm Harsh, A Full Stack Flutter app developer</h1>
+<h3 align="center">Looking into the world of development</h3>
 
   <p align="center"><img src="https://user-images.githubusercontent.com/30944790/121785091-681aee00-cbd5-11eb-817c-5132578ff0a8.png"></p>
 
@@ -22,7 +23,7 @@
 
 
 ### Glad to see you here!  
-An undergrad student at USICT. I have been learning Flutter and Firebase to follow my passion for app development and currently exploring data structures and algorithms and web3 to expand my knowledge.  
+I'm an undergrad student at USICT. I have been learning Flutter and Firebase to follow my passion for app development and currently exploring data structures and algorithms and web3 to expand my knowledge.  
 <br/>  
 - I’m currently learning Data Structures and Algorithms!  
   
@@ -63,7 +64,9 @@ An undergrad student at USICT. I have been learning Flutter and Firebase to foll
 
 <br/>  
 
-  [![An image of @imhrsit's Holopin badges, which is a link to view their full Holopin profile](https://holopin.me/imhrsit)](https://holopin.io/@imhrsit)
+## Hacktoberfest'23 badges
+
+[![An image of @imhrsit's Holopin badges, which is a link to view their full Holopin profile](https://holopin.me/imhrsit)](https://holopin.io/@imhrsit)
 
 <br/>  
 
