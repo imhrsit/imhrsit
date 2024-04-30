@@ -18,5 +18,7 @@ Hi there!👋🏻 I like to write in Dart and I'm exploring Linux 🐍
 ### 😂 Random Dev Meme
 <img src='https://randommeme-five.vercel.app/' style="height: 400px;"/>
 
+## 🧑‍💻 Dev Card
+<a href="https://app.daily.dev/harshtiwari83"><img src="https://api.daily.dev/devcards/v2/Ayid3uBgKDVkd2W2nKO74.png?type=default&r=4la" width="356" alt="Harsh Tiwari's Dev Card"/></a>
 ---
 [![](https://visitcount.itsvg.in/api?id=imhrsit&icon=0&color=0)](https://visitcount.itsvg.in)
