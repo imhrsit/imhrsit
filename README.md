@@ -1,9 +1,7 @@
 <h1 align="center">Hi 👋, I'm Harsh Tiwari</h1>
 <h3 align="center">A Software Engineer trying to build systems that scale well 🧑‍💻</h3>
 
-[![](https://visitcount.itsvg.in/api?id=imhrsit&icon=0&color=0)](https://visitcount.itsvg.in)
-
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=imhrsit" alt="imhrsit" /></a> </p>
+<p align="center"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=imhrsit" alt="imhrsit" /></a> </p>
 
 <p align="left"> <a href="https://twitter.com/imhrsit" target="blank"><img src="https://img.shields.io/twitter/follow/imhrsit?logo=twitter&style=for-the-badge" alt="imhrsit" /></a> </p>
 
@@ -32,3 +30,5 @@
 <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=imhrsit&show_icons=true&locale=en" alt="imhrsit" /></p>
 
 <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=imhrsit&theme=default" alt="imhrsit" /></p>
+
+[![](https://visitcount.itsvg.in/api?id=imhrsit&icon=0&color=0)](https://visitcount.itsvg.in)
