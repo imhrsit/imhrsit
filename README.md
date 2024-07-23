@@ -1,17 +1,18 @@
 <h1 align="center">Hi 👋, I'm Harsh Tiwari</h1>
 <h3 align="center">A Software Engineer trying to build systems that scale well 🧑‍💻</h3>
 
-<p align="center"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=imhrsit" alt="imhrsit" /></a> </p>
+<img align="center" alt="Coding" width="1100"
+src="https://user-images.githubusercontent.com/74038190/225813708-98b745f2-7d22-48cf-9150-083f1b00d6c9.gif">
 
 <p align="left"> <a href="https://twitter.com/imhrsit" target="blank"><img src="https://img.shields.io/twitter/follow/imhrsit?logo=twitter&style=for-the-badge" alt="imhrsit" /></a> </p>
 
-- 🔭 I’m currently working on **CritiQ**
+- 💻 I’m currently working on **CritiQ**
 
-- 🌱 I’m currently learning **GoLang**
+- 🌱 I’m currently learning **System Design**
 
-- 👯 I’m looking to collaborate on **Gen AI Projects**
+- 👨‍🌾 I’m looking to collaborate on **Gen AI Projects**
 
-- ⚡ Fun fact - **I keep night shift turned on at all times!😴**
+- 😇 Fun fact - **I keep night shift turned on at all times!**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
