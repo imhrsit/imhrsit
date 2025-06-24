@@ -6,11 +6,11 @@ src="https://user-images.githubusercontent.com/74038190/225813708-98b745f2-7d22-
 
 <p align="left"> <a href="https://twitter.com/imhrsit" target="blank"><img src="https://img.shields.io/twitter/follow/imhrsit?logo=twitter&style=for-the-badge" alt="imhrsit" /></a> </p>
 
-- 💻 I’m currently working on **CritiQ**
+- 💻 I’m currently working on **uPOD - Smart Lockers**
 
-- 🌱 I’m currently learning **System Design**
+- 🌱 I’m currently learning **Low Level Design**
 
-- 👨‍🌾 I’m looking to collaborate on **Gen AI Projects**
+- 👨‍🌾 I’m looking to collaborate on **MCP and RAG Projects**
 
 - 😇 Fun fact - **I keep night shift turned on at all times!**
 
