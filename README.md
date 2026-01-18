@@ -32,7 +32,7 @@ C++         ██████████░░░░░░░░░░  50%
 Dart        ████████░░░░░░░░░░░░  40%
 ```
 
-** ⚙️ Tools & Frameworks:**
+### ⚙️ Tools and Frameworks
 
 ![React](https://img.shields.io/badge/-React-45b8d8?style=flat-square&logo=react&logoColor=white)
 ![Node.js](https://img.shields.io/badge/-Nodejs-43853d?style=flat-square&logo=Node.js&logoColor=white)
@@ -74,4 +74,4 @@ Dart        ████████░░░░░░░░░░░░  40%
   <img src="https://komarev.com/ghpvc/?username=imhrsit&color=dc143c&style=flat-square" alt="Profile views">
 </p>
 
-<p align="center">💡 "Code is like humor. When you have to explain it, it's bad." – Cory House</p>
+<p align="center">💡 “Weeks of coding can save you hours of planning.” – Anonymous</p>
