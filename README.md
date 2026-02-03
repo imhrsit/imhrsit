@@ -47,17 +47,6 @@ Dart        ████████░░░░░░░░░░░░  40%
 ![Git](https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=git&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/-Tailwind-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)
 
-### 📈 GitHub Stats
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=imhrsit&show_icons=true&theme=radical&hide_border=true" alt="GitHub Stats" height="165">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=imhrsit&layout=compact&theme=radical&hide_border=true" alt="Top Languages" height="165">
-</p>
-
-<p align="center">
-  <img src="https://streak-stats.demolab.com?user=imhrsit&theme=radical&hide_border=true" alt="GitHub Streak">
-</p>
-
 ### 🌐 Let's Connect
 
 <p align="left">
