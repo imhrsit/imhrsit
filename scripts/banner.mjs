@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 /**
- * Renders the profile banner: a monospace handle that resolves out of noise,
- * a blinking block cursor, and a muted subtitle.
+ * Renders the profile banner: monospace text that resolves out of noise, a
+ * blinking block cursor, and a muted subtitle.
+ *
+ * Layout and timing are derived from HANDLE's length, so changing the text
+ * rescales the type, the cursor and the reveal instead of overflowing.
  *
  * The animation is deliberately additive. Every element's *attribute* value is
  * its finished state, so a renderer that ignores SMIL shows clean final text
@@ -12,18 +15,33 @@
 
 import { writeFileSync, mkdirSync } from 'node:fs';
 
-const HANDLE = 'imhrsit';
-const SUBTITLE = '// nothing to see here';
+const HANDLE = 'Software Engineer';
+const SUBTITLE = '22, Delhi';
 const SCRAMBLE = '!<>-_\\/[]{}=+*^?#$%&@01xyz';
 
 const W = 760;
 const H = 150;
-const ADV = 40;        // per-character cell width
-const FONT_SIZE = 62;
-const BASELINE = 82;
-
-const TIMELINE = 1.6;  // seconds
+const INNER_W = 660;   // width available to the handle plus its cursor
+const ADV_MAX = 40;    // cell width ceiling, so short text is not gigantic
 const VARIANTS = 6;    // noise glyphs shown before a character settles
+
+const CHARS = [...HANDLE];
+const CELLS = CHARS.length + 1; // the cursor occupies a trailing cell
+
+// Type scale: shrink the cell until the whole line fits the usable width.
+const ADV = Math.min(ADV_MAX, INNER_W / CELLS);
+const FONT_SIZE = ADV * 1.55;
+const BASELINE = 52 + FONT_SIZE * 0.48;
+const SUB_Y = BASELINE + 38;
+
+// Reveal timing: tighten the per-character stagger as the text gets longer so
+// the whole decode stays under roughly a second.
+const STAGGER = Math.min(0.085, 0.9 / CHARS.length);
+const LAST_SETTLE = 0.22 + (CHARS.length - 1) * STAGGER;
+const SUB_START = LAST_SETTLE + 0.12;
+const SUB_END = SUB_START + 0.5;
+const TIMELINE = SUB_END + 0.1;
+const CURSOR_BEGIN = LAST_SETTLE + 0.2;
 
 const MONO =
   "ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, 'Liberation Mono', monospace";
@@ -44,62 +62,70 @@ function rng(seed) {
   };
 }
 
-const esc = (c) =>
+const escChar = (c) =>
   ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' })[c] ?? c;
+const escText = (s) => [...s].map(escChar).join('');
+
+const n2 = (v) => Number(v.toFixed(2));
+const n4 = (v) => Number(v.toFixed(4));
 
 function render(theme) {
   const t = THEMES[theme];
   const rand = rng(0x1a7f3c);
-  const n = HANDLE.length;
   const cx = W / 2;
 
-  // Centre the handle *and* the cursor cell as one block.
-  const cellX = (i) => cx + (i - n / 2) * ADV;
-  const cursorX = cx + (n / 2) * ADV;
+  // Centre the text and the cursor together as one block.
+  const cellX = (i) => cx + (i - CHARS.length / 2) * ADV;
+  const cursorX = cx + (CHARS.length / 2) * ADV;
 
   let out = '';
 
-  for (let i = 0; i < n; i += 1) {
-    const x = cellX(i).toFixed(1);
-    const settle = 0.22 + i * 0.085;
-    const common = `x="${x}" y="${BASELINE}" font-family="${MONO}" font-size="${FONT_SIZE}" font-weight="700" text-anchor="middle"`;
+  for (let i = 0; i < CHARS.length; i += 1) {
+    const ch = CHARS[i];
+    if (ch === ' ') continue; // a gap stays a gap; do not scramble whitespace
 
-    // Noise glyphs: hidden by default, each flashed for one slice of the
+    const x = n2(cellX(i));
+    const settle = 0.22 + i * STAGGER;
+    const common = `x="${x}" y="${n2(BASELINE)}" font-family="${MONO}" font-size="${n2(FONT_SIZE)}" font-weight="700" text-anchor="middle"`;
+
+    // Noise glyphs: hidden by default, each flashed for one slice of this
     // character's scramble window.
     for (let v = 0; v < VARIANTS; v += 1) {
-      const glyph = esc(SCRAMBLE[Math.floor(rand() * SCRAMBLE.length)]);
-      const a = ((v * settle) / VARIANTS / TIMELINE).toFixed(4);
-      const b = (((v + 1) * settle) / VARIANTS / TIMELINE).toFixed(4);
+      const glyph = escChar(SCRAMBLE[Math.floor(rand() * SCRAMBLE.length)]);
+      const a = n4((v * settle) / VARIANTS / TIMELINE);
+      const b = n4(((v + 1) * settle) / VARIANTS / TIMELINE);
       const keyTimes = v === 0 ? `0;${b};1` : `0;${a};${b};1`;
       const values = v === 0 ? '1;0;0' : '0;1;0;0';
       out +=
         `<text ${common} fill="${t.noise}" opacity="0">${glyph}` +
         `<animate attributeName="opacity" values="${values}" keyTimes="${keyTimes}" ` +
-        `dur="${TIMELINE}s" begin="0s" fill="freeze" calcMode="discrete"/></text>`;
+        `dur="${n2(TIMELINE)}s" begin="0s" fill="freeze" calcMode="discrete"/></text>`;
     }
 
     // The real character: visible by default, revealed on cue when animating.
-    const s = (settle / TIMELINE).toFixed(4);
     out +=
-      `<text ${common} fill="${t.handle}" opacity="1">${esc(HANDLE[i])}` +
-      `<animate attributeName="opacity" values="0;1;1" keyTimes="0;${s};1" ` +
-      `dur="${TIMELINE}s" begin="0s" fill="freeze" calcMode="discrete"/></text>`;
+      `<text ${common} fill="${t.handle}" opacity="1">${escChar(ch)}` +
+      `<animate attributeName="opacity" values="0;1;1" keyTimes="0;${n4(settle / TIMELINE)};1" ` +
+      `dur="${n2(TIMELINE)}s" begin="0s" fill="freeze" calcMode="discrete"/></text>`;
   }
 
   // Block cursor: solid through the reveal, then blinking forever.
+  const cw = ADV * 0.55;
   out +=
-    `<rect x="${(cursorX - 11).toFixed(1)}" y="36" width="22" height="48" fill="${t.cursor}">` +
+    `<rect x="${n2(cursorX - cw / 2)}" y="${n2(BASELINE - FONT_SIZE * 0.742)}" ` +
+    `width="${n2(cw)}" height="${n2(FONT_SIZE * 0.775)}" fill="${t.cursor}">` +
     `<animate attributeName="opacity" values="1;0" keyTimes="0;0.5" dur="1.1s" ` +
-    `begin="0.95s" repeatCount="indefinite" calcMode="discrete"/></rect>`;
+    `begin="${n2(CURSOR_BEGIN)}s" repeatCount="indefinite" calcMode="discrete"/></rect>`;
 
   out +=
-    `<text x="${cx}" y="120" fill="${t.sub}" font-family="${MONO}" font-size="13.5" ` +
-    `letter-spacing="1.2" text-anchor="middle" opacity="1">${SUBTITLE.replace(/[&<>]/g, esc)}` +
-    `<animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.53;0.84;1" ` +
-    `dur="${TIMELINE}s" begin="0s" fill="freeze"/></text>`;
+    `<text x="${cx}" y="${n2(SUB_Y)}" fill="${t.sub}" font-family="${MONO}" font-size="13.5" ` +
+    `letter-spacing="1.2" text-anchor="middle" opacity="1">${escText(SUBTITLE)}` +
+    `<animate attributeName="opacity" values="0;0;1;1" ` +
+    `keyTimes="0;${n4(SUB_START / TIMELINE)};${n4(SUB_END / TIMELINE)};1" ` +
+    `dur="${n2(TIMELINE)}s" begin="0s" fill="freeze"/></text>`;
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${HANDLE}">
-<title>${HANDLE}</title>
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${escText(HANDLE)}">
+<title>${escText(HANDLE)}</title>
 ${out}
 </svg>`;
 }
@@ -110,3 +136,7 @@ for (const theme of Object.keys(THEMES)) {
   writeFileSync(`assets/banner-${theme}.svg`, svg);
   console.log(`wrote assets/banner-${theme}.svg (${svg.length} bytes)`);
 }
+console.log(
+  `handle "${HANDLE}" -> ${CHARS.length} chars, cell ${ADV.toFixed(1)}px, ` +
+    `font ${FONT_SIZE.toFixed(1)}px, timeline ${TIMELINE.toFixed(2)}s`
+);
