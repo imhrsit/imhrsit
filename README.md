@@ -7,9 +7,12 @@
 </picture>
 
 <sub>
+
+  &nbsp;·&nbsp;
   <a href="https://linkedin.com/in/harsh-tiwari-5a67671b8">linkedin</a>
   &nbsp;·&nbsp;
   <a href="https://twitter.com/imhrsit">x</a>
+  
 </sub>
 
 </div>
