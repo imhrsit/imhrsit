@@ -1,0 +1,48 @@
+name: 3D contribution calendar
+
+on:
+  schedule:
+    # 02:17 UTC daily — offset from the hour so it is not queued with the crowd.
+    - cron: "17 2 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/contrib-3d.mjs"
+      - ".github/workflows/contributions-3d.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: contributions-3d
+  cancel-in-progress: true
+
+jobs:
+  render:
+    name: Render and commit
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Render isometric calendar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/contrib-3d.mjs --user "${{ github.repository_owner }}" --out assets
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets
+          if git diff --staged --quiet; then
+            echo "Calendar unchanged — nothing to commit."
+          else
+            git commit -m "chore: refresh contribution calendar"
+            git push
+          fi
