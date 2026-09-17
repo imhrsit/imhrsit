@@ -6,19 +6,9 @@
 
 
 <p align="center">
-<a href="https://linkedin.com/in/harsh-tiwari-5a67671b8">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/linkedin-dark.svg">
-    <img height="20" src="assets/linkedin-light.svg" alt="linkedin">
-  </picture>
-</a>
+<a href="https://linkedin.com/in/harsh-tiwari-5a67671b8"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/linkedin-dark.svg"><img height="20" src="assets/linkedin-light.svg" alt="linkedin"></picture></a>
 &nbsp;&nbsp;&nbsp;
-<a href="https://x.com/imhrsit">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/x-dark.svg">
-    <img height="20" src="assets/x-light.svg" alt="x">
-  </picture>
-</a>
+<a href="https://x.com/imhrsit"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/x-dark.svg"><img height="20" src="assets/x-light.svg" alt="x"></picture></a>
 </p>
 
 <p align="center"><samp>
